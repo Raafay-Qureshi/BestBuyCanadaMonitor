@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^0.25.0",
+    "discord-webhook-node": "^1.1.8",
+    "http-proxy-middleware": "^2.0.3",
+    "node-fetch": "^2.6.7"
+  },
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.1.2"
+  },
+  "scripts": {
+    "start": "node scheduled-job.js"
+}
+}
