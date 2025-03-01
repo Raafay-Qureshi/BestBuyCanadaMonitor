@@ -1,8 +1,8 @@
 const axios = require("axios");
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
-const newUrl = (sku, province) => `https://www.bestbuy.ca/ecomm-api/availability/products?accept=application%2Fvnd.bestbuy.standardproduct.v1%2Bjson&accept-language=en-CA&locations=${province}&skus=${sku}`
+const newUrl = (sku, province) => ``
 
-const APP_NAME = 'Bestbuy Monitor'
+const APP_NAME = 'Stock Monitor'
 const APP_VERSION = '1.00'
 
 timeoutMap = new Map();
@@ -69,7 +69,7 @@ async function run(productList, province) {
         'Sec-Fetch-Site': 'same-origin', 
         'Sec-Fetch-Mode': 'cors', 
         'Sec-Fetch-Dest': 'empty', 
-        'host': 'www.bestbuy.ca'
+        'host': 'www.'
       }
     };
 
@@ -117,10 +117,10 @@ async function run(productList, province) {
                 .setTitle(product.name)
                 .setColor('#0FFF50')
                 .setDescription('In Stock')
-                .setFooter('BestBuy Bot', 'https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
+                .setFooter('Stock Bot', 'https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
                 .setTimestamp()
                 .setThumbnail('https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
-                .setURL(`https://queue.bestbuy.ca/?c=bestbuycanada&e=qpucheckoutprod&t=https%3A%2F%2Fwww.bestbuy.ca%2Fcheckout%2F%3Fqit%3D1%23%2Fen-ca%2Freserve-pickup%2Fpickup-store%3Fsku%3D${product.sku}&cid=en-US`)
+                .setURL(`www.`)
                 .setImage(`https://multimedia.bbycastatic.ca/multimedia/products/500x500/${product.sku.substring(0,3)}/${product.sku.substring(0,5)}/${product.sku}.jpg`);
           
                 for (let j = 0; j < nameList.length; j++) {
@@ -148,10 +148,10 @@ async function run(productList, province) {
                   .setTitle(product.name)
                   .setColor('#0FFF50')
                   .setDescription('In Stock')
-                  .setFooter('BestBuy Bot', 'https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
+                  .setFooter('Stock Bot', 'https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
                   .setTimestamp()
                   .setThumbnail('https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
-                  .setURL(`https://queue.bestbuy.ca/?c=bestbuycanada&e=qpucheckoutprod&t=https%3A%2F%2Fwww.bestbuy.ca%2Fcheckout%2F%3Fqit%3D1%23%2Fen-ca%2Freserve-pickup%2Fpickup-store%3Fsku%3D${product.sku}&cid=en-US`)
+                  .setURL(`www.`)
                   .setImage(`https://multimedia.bbycastatic.ca/multimedia/products/500x500/${product.sku.substring(0,3)}/${product.sku.substring(0,5)}/${product.sku}.jpg`)
                   .addField('Online', prod.shipping.quantityRemaining, true);
         
@@ -191,10 +191,10 @@ async function run(productList, province) {
                   .setTitle(product.name)
                   .setColor('#0FFF50')
                   .setDescription('Status Changed')
-                  .setFooter('BestBuy Bot', 'https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
+                  .setFooter('Stock Bot', 'https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
                   .setTimestamp()
                   .setThumbnail('https://www.gannett-cdn.com/-mm-/428d5c4bd2e8866dabd099a10d07c1c92e90bcd4/c=0-0-881-498/local/-/media/2018/04/18/USATODAY/USATODAY/636596669293144926-BBY-on-blue-1.jpg?width=660&height=374&fit=crop&format=pjpg&auto=webp')
-                  .setURL(`https://queue.bestbuy.ca/?c=bestbuycanada&e=qpucheckoutprod&t=https%3A%2F%2Fwww.bestbuy.ca%2Fcheckout%2F%3Fqit%3D1%23%2Fen-ca%2Freserve-pickup%2Fpickup-store%3Fsku%3D${product.sku}&cid=en-US`)
+                  .setURL(`www.`)
                   .setImage(`https://multimedia.bbycastatic.ca/multimedia/products/500x500/${product.sku.substring(0,3)}/${product.sku.substring(0,5)}/${product.sku}.jpg`)
                   .addField('Old Status', alertMap.get(product.sku + "Alert"), true)
                   .addField('New Status', prod.shipping.status, true);
@@ -225,7 +225,7 @@ function everyProvince(productList) {
 }
 
 console.log('Starting ' + APP_NAME + ' v' + APP_VERSION + '...');
-console.log('Searching for products in bestbuy...');
+console.log('Searching for products...');
 
 function IntTwoChars(i) {
   return (`0${i}`).slice(-2);
